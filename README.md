@@ -1,17 +1,53 @@
-# Our Faces
-A sandbox project for the Arcane dev team to play around with EmberJS.
+ # Our-faces
 
-## Proposed Tech
-- EmberJS
-- Express
-- NodeJS
-- MongoDB
-- Mongoose
-- Bower
-- NPM
-- Heroku
+This README outlines the details of collaborating on this Ember application.
+A short introduction of this app could easily go here.
 
-## Workflow
-1. All merges to the dev branch should be done through pull requests.
-2. Ideas and features should be created as issues and discussed.
-3. Communication for the project should be done over Slack or Hangouts.
+## Prerequisites
+
+You will need the following things properly installed on your computer.
+
+* [Git](http://git-scm.com/)
+* [Node.js](http://nodejs.org/) (with NPM)
+* [Bower](http://bower.io/)
+* [Ember CLI](http://www.ember-cli.com/)
+* [PhantomJS](http://phantomjs.org/)
+
+## Installation
+
+* `git clone <repository-url>` this repository
+* change into the new directory
+* `npm install`
+* `bower install`
+
+## Running / Development
+
+* `ember server`
+* Visit your app at [http://localhost:4200](http://localhost:4200).
+
+### Code Generators
+
+Make use of the many generators for code, try `ember help generate` for more details
+
+### Running Tests
+
+* `ember test`
+* `ember test --server`
+
+### Building
+
+* `ember build` (development)
+* `ember build --environment production` (production)
+
+### Deploying
+
+Specify what it takes to deploy your app.
+
+## Further Reading / Useful Links
+
+* [ember.js](http://emberjs.com/)
+* [ember-cli](http://www.ember-cli.com/)
+* Development Browser Extensions
+  * [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
+  * [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)
+
