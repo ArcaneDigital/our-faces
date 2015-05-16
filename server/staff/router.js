@@ -1,9 +1,10 @@
 'use strict';
 
 var express         = require('express'),
-    app             = express();
+    app             = express(),
+    router          = express.Router();
 
-app.route('/staff')
+router.route('/get')
     .get(function (req, res) {
         res.send({
             staff : [
@@ -13,5 +14,7 @@ app.route('/staff')
             ]
         })
     });
+
+app.use('/staff', router);
 
 module.exports = app;
