@@ -1,1 +1,0 @@
-/Users/jason/Desktop/our-faces/tmp/jshinter-tmp_dest_dir-gHriYsAo.tmp/test-helper.jshint.js

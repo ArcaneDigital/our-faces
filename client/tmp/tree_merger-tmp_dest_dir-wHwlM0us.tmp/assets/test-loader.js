@@ -1,1 +1,0 @@
-/Users/jason/Desktop/our-faces/bower_components/ember-cli-test-loader/test-loader.js

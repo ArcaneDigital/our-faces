@@ -1,1 +1,0 @@
-/Users/jason/Desktop/our-faces/tmp/jshinter-tmp_dest_dir-gHriYsAo.tmp/helpers/resolver.jshint.js
