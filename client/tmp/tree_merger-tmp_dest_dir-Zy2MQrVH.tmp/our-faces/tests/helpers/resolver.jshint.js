@@ -1,0 +1,1 @@
+/Users/jason/Desktop/our-faces/tmp/funnel-dest_je8b1e.tmp/our-faces/tests/helpers/resolver.jshint.js

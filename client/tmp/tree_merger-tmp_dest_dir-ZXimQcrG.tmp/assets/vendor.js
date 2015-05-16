@@ -1,0 +1,1 @@
+/Users/jason/Desktop/our-faces/tmp/caching-writer-dest-dir_TeUirm.tmp/assets/vendor.js
