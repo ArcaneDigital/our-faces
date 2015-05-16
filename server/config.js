@@ -18,7 +18,8 @@ var Config = {
     },
 
     api: {
-        version: 1
+        version: 1,
+        url: '/api/v'
     }
 
 }
