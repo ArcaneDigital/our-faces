@@ -1,6 +1,35 @@
 #facesLayout {
 	div {
 		float: left;
-		max-width: 25%;
+		max-width: 50%;
+		@media all and (min-width: 32.5em) {
+			max-width: 33%;
+		}
+		@media all and (min-width: 48em) {
+			max-width: 25%;
+		}
+		@media all and (min-width: 60em) {
+			max-width: 20%;
+		}
+		@media all and (min-width: 72.5em) {
+			max-width: 16.666667%;
+		}
+		@media all and (min-width: 85em) {
+			max-width: 14.2857%;
+		}
+		@media all and (min-width: 100em) {
+			max-width: 12.5%;
+		}
+		@media all and (min-width: 120em) {
+			max-width: 10%;
+		}
+	}
+	&:hover {
+		div {
+			opacity: 0.5;
+		}
+		div:hover {
+			opacity: 1;
+		}
 	}
 }
