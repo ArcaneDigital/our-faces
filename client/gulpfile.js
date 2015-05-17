@@ -10,12 +10,12 @@ var rename = require('gulp-rename');
 var autoprefixer = require('gulp-autoprefixer');
 
 // Default Task
-gulp.task('init', ['lint', 'style', 'scripts', 'legacyjs', 'images', 'watch']);
+gulp.task('init', ['lint', 'styles', 'scripts', 'legacyjs', 'images']);
 
 // Watch Files For Changes
 gulp.task('watch', function () {
-    gulp.watch('src/scripts/**/*', ['lint', 'scripts']);
-    gulp.watch('src/styles/**/*', ['style']);
+    gulp.watch('app/scripts/**/*.js', ['lint', 'scripts']);
+    gulp.watch('app/styles/**/*.scss', ['styles']);
 });
 
 // Lint Task
@@ -26,11 +26,11 @@ gulp.task('lint', function () {
 });
 
 // Compile Our Sass
-gulp.task('style', function () {
+gulp.task('styles', function () {
     return gulp.src('app/sass/app.scss')
         .pipe(sass())
         .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'))
-        .pipe(gulp.dest('app/styles'));
+        .pipe(gulp.dest('dist/style'));
 });
 
 
@@ -39,17 +39,17 @@ gulp.task('scripts', function () {
     return gulp.src('app/scripts/frontend.js')
         .pipe(rename('frontend.min.js'))
         .pipe(uglify())
-        .pipe(gulp.dest('dist/assets'));
+        .pipe(gulp.dest('dist/js'));
 });
  
 gulp.task('legacyjs', function () {
 	return gulp.src('src/scripts/legacy.min.js')
 		.pipe(uglify())
-		.pipe(gulp.dest('dist/assets'));
+		.pipe(gulp.dest('dist/js'));
 });
 
 // Move Images
 gulp.task('images', function () {
 	return gulp.src('app/images/**/*')
-		.pipe(gulp.dest('dist/assets'));
+		.pipe(gulp.dest('dist/image'));
 });
