@@ -1,0 +1,23 @@
+$columns: 16;
+$minPadding: 100%/18;
+$columnWidth: 100%/$columns;
+
+
+body > header, body > footer {
+	padding: 0 $minPadding;
+}
+body > main {
+	& > * {
+		padding: 0 $minPadding;
+		@media all and (min-width: 48em) {
+			padding: 0 $columnWidth*1;
+		}
+		@media all and (min-width: 72.5em) {
+			padding: 0 $columnWidth*2;
+		}
+		@media all and (min-width: 100em) {
+			padding: 0 $columnWidth*3;
+			
+		}
+	}
+}
