@@ -1,0 +1,18 @@
+$columns: 16;
+$minPadding: 100%/18;
+$columnWidth: 100%/$columns;
+
+body > header, body > main, body > footer {
+	@include clearfix;
+}
+body > header, body > footer {
+	padding: 0 $minPadding;
+}
+body > main {
+	& > * {
+		padding: 0 $minPadding;
+		@media all and (min-width: 48em) {
+			padding: 0 $columnWidth*1;
+		}
+	}
+}
