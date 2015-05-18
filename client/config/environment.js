@@ -2,6 +2,10 @@
 
 module.exports = function(environment) {
   var ENV = {
+    contentSecurityPolicy: {
+      'style-src': "'self' 'unsafe-inline' fonts.googleapis.com fonts.gstatic.com",
+      'font-src': "'self' data: fonts.googleapis.com data: fonts.gstatic.com",
+    },
     modulePrefix: 'our-faces',
     environment: environment,
     baseURL: '/',
