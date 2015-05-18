@@ -9,7 +9,7 @@ app.locals.folder = __dirname;
 
 // Dynamically load routes from component folders
 route_loader.load(app, function(err, route) {
-    app.use(config.api.url + config.api.version, route._router);
+    app.use(config.api.url, route._router);
 });
 
 // Encode form data

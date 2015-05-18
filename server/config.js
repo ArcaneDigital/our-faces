@@ -7,7 +7,7 @@ var Config = {
 
     express: {
         port: process.env.PORT || 3000,
-        ip: PRODUCTION ? '0.0.0.0' : '192.168.10.10'        
+        ip: PRODUCTION ? '0.0.0.0' : 'localhost'        
     },
 
     mongo: {
@@ -19,7 +19,7 @@ var Config = {
 
     api: {
         version: 1,
-        url: '/api/v'
+        url: '/api/v1'
     }
 
 }
