@@ -68,6 +68,27 @@ router.route('/:id(\\d+)/')
                 });
             }
         );
+    })
+
+    // Remove staff member by ID
+    .delete(function(req, res) {
+        var staffID = req.params.id;
+
+        StaffModel.find({ id: staffID }).remove().exec(function(err, result) {
+            if (err) {
+                return res.send({
+                    err: {
+                        message: 'Could not remove staff member.'
+                    }
+                });
+            }
+
+            res.send({
+                result: {
+                    message: 'Successfully removed staff member.'
+                }
+            });
+        });
     });
 
 app.use('/staff', router);
