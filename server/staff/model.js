@@ -7,7 +7,22 @@ var StaffSchema = mongoose.model('Staff', Schema({
     id: {
         type: String
     },
-    name: {
+    firstName: {
+        type: String
+    },
+    lastName: {
+        type: String
+    },
+    position: {
+        type: String
+    },
+    location: {
+        type: String
+    },
+    photo: {
+        type: String
+    },
+    extension: {
         type: String
     }
 }));
