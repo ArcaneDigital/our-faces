@@ -4,7 +4,7 @@ var mongoose        = require('mongoose'),
     Schema          = mongoose.Schema;
 
 var StaffSchema = mongoose.model('Staff', Schema({
-    id: {
+    id:{
         type: String
     },
     firstName: {
