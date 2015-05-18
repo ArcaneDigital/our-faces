@@ -3,13 +3,13 @@ var StaffModel      = require('./model');
 
 var	StaffController = {
 
-	getOne: function(req, res){
+	getOne: function(req, res) {
 		StaffModel.find({ id: req.params.id }).exec(function(err, result) {
             res.send(result);
         });	
 	},
 
-	getMany: function(req,res){
+	getMany: function(req, res) {
 		StaffModel.find( {} ).exec(function(err, result) {
 	        if (err) {
 	            return res.send({
@@ -33,14 +33,30 @@ var	StaffController = {
 	                staff: staffMembers
 	            }
 	        });
-	    }
+	    });
 	},
 
-	create: function(req,res){
+	create: function(req, res) {
+		var member = new StaffModel(req.body);
+		member.save(function(err, result) {
+            if (err) {
+                res.send({
+                    err: {
+                        message: err
+                    }
+                });
+            }
 
+            res.send({
+                result: {
+                    message: 'Successfully created staff member.',
+                    id: result.id
+                }
+            });
+		});
 	},
 
-	update: function(req,res){
+	update: function(req, res) {
 		var staffID = req.params.id,
 	    staffData = req.body;
 
@@ -65,7 +81,7 @@ var	StaffController = {
 	    );
 	},
 
-	delete: function(req,res){
+	delete: function(req, res) {
 	 	var staffID = req.params.id;
 
 	    StaffModel.find({ id: staffID }).remove().exec(function(err, result) {
@@ -86,6 +102,5 @@ var	StaffController = {
 	}
 
 };
-
 
 module.exports = StaffController;
