@@ -3,38 +3,27 @@
 var express         = require('express'),
     app             = express(),
     router          = express.Router(),
-    StaffModel      = require('./model');
+    StaffCtrl       = require('./controller');
+
+
+
+
+
+router.route('/')
+
+    // Get list of staff members
+    .get(StaffCtrl.getMany);
 
 router.route('/:id(\\d+)/')
-    .get(function(req, res) {
-        StaffModel.find({ id: req.params.id }).exec(function(err, result) {
-            res.send(result);
-        });
-    })
-    .post(function(req, res) {
-        var staffID = req.params.id,
-            staffData = req.body;
 
-        StaffModel.findOneAndUpdate({ id: staffID },
-            staffData,
-            { upsert: true },
-            function(err, result) {
-                if (err) {
-                    res.send({
-                        err: {
-                            message: err
-                        }
-                    });
-                }
+    // Get staff member by ID
+    .get(StaffCtrl.getOne)
 
-                res.send({
-                    result: {
-                        message: 'Successfully updated staff member.'
-                    }
-                });
-            }
-        );
-    });
+    // Update staff member by ID
+    .post(StaffCtrl.update)
+
+    // Remove staff member by ID
+    .delete(StaffCtrl.delete);
 
 app.use('/staff', router);
 
