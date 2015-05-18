@@ -1,15 +1,18 @@
-'use strict';
 
-var express         = require('express'),
-    app             = express(),
-    router          = express.Router(),
-    StaffModel      = require('./model');
+ StaffModel      = require('./model');
 
-router.route('/')
 
-    // Get list of staff members
-    .get(function(req, res) {
-        StaffModel.find( {} ).exec(function(err, result) {
+var StaffController = {
+
+
+	getOne: function(req, res){
+		 StaffModel.find({ id: req.params.id }).exec(function(err, result) {
+            res.send(result);
+        });	
+	},
+
+	getMany: function(req,res){
+		 StaffModel.find( {} ).exec(function(err, result) {
             if (err) {
                 return res.send({
                     err: {
@@ -32,22 +35,16 @@ router.route('/')
                     staff: staffMembers
                 }
             });
-        });
-    });
+        }
+	},
 
-router.route('/:id(\\d+)/')
+	create: function(req,res){
 
-    // Get staff member by ID
-    .get(function(req, res) {
-        StaffModel.find({ id: req.params.id }).exec(function(err, result) {
-            res.send(result);
-        });
-    })
+	},
 
-    // Update staff member by ID
-    .post(function(req, res) {
-        var staffID = req.params.id,
-            staffData = req.body;
+	update: function(req,res){
+		var staffID = req.params.id,
+        staffData = req.body;
 
         StaffModel.findOneAndUpdate({ id: staffID },
             staffData,
@@ -68,11 +65,10 @@ router.route('/:id(\\d+)/')
                 });
             }
         );
-    })
+	},
 
-    // Remove staff member by ID
-    .delete(function(req, res) {
-        var staffID = req.params.id;
+	delete: function(req,res){
+		 var staffID = req.params.id;
 
         StaffModel.find({ id: staffID }).remove().exec(function(err, result) {
             if (err) {
@@ -89,8 +85,9 @@ router.route('/:id(\\d+)/')
                 }
             });
         });
-    });
+	}
 
-app.use('/staff', router);
+}
 
-module.exports = app;
+
+module.exports = StaffController;
