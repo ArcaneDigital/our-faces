@@ -3,7 +3,7 @@
 	& > section {
 		@include clearfix;
 		width: 100%;
-		@media all and (min-width: 100em) {
+		@media all and (min-width: 85em) {
 			width: 50%;
 			float: left;
 		}
