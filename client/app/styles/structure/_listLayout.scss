@@ -1,6 +1,16 @@
 
 .listLayout #facesLayout {
-	div {
-
+	& > section {
+		@include clearfix;
+		width: 100%;
+		@media all and (min-width: 100em) {
+			width: 50%;
+			float: left;
+		}
+		img {
+			max-width: 25%;
+			float: left;
+			max-height: 100%;
+		}
 	}
 }
