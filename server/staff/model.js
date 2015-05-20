@@ -3,7 +3,18 @@
 var mongoose        = require('mongoose'),
     Schema          = mongoose.Schema;
 
-var StaffSchema = mongoose.model('Staff', Schema({
+var StaffCounter = mongoose.model('StaffCounter', Schema({
+    _id: {
+        type: String,
+        required: true
+    },
+    seq: {
+        type: Number,
+        default: 0
+    }
+}));
+
+var StaffSchema = Schema({
     id:{
         type: String
     },
@@ -25,6 +36,23 @@ var StaffSchema = mongoose.model('Staff', Schema({
     extension: {
         type: String
     }
-}));
+});
 
-module.exports = StaffSchema;
+StaffSchema.pre('save', function(next) {
+    var member = this;
+
+    StaffCounter.findByIdAndUpdate(
+        'staffID',
+        { $inc: { seq: 1 } },
+        { upsert: true },
+        function(err, counter) {
+            if (err) {
+                return next(err);
+            }
+
+            member.id = counter.seq;
+            next();
+        });
+});
+
+module.exports = mongoose.model('Staff', StaffSchema);

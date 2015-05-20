@@ -5,14 +5,11 @@ var express         = require('express'),
     router          = express.Router(),
     StaffCtrl       = require('./controller');
 
-
-
-
-
 router.route('/')
 
     // Get list of staff members
-    .get(StaffCtrl.getMany);
+    .get(StaffCtrl.getMany)
+    .post(StaffCtrl.create);
 
 router.route('/:id(\\d+)/')
 
